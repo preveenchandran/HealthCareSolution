@@ -12,11 +12,13 @@ namespace HCAPI.Controllers
     {
         public IHttpActionResult GetAllPatient()
         {
+            List<Patient> lstPatient = new List<Patient>();
             Patient patient = new Patient {
                  FirstName="Preveen",
                  LastName = "Chandran"
             };
-            return Ok(patient);
+            lstPatient.Add(patient);
+            return Ok(lstPatient);
         }
     }
 }

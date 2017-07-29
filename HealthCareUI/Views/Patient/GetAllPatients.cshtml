@@ -1,0 +1,18 @@
+﻿@model IEnumerable<HealthCareUI.Models.Patient>
+
+@{
+    ViewBag.Title = "GetAllPatients";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>GetAllPatients</h2>
+
+@using (Html.BeginForm())
+{
+    foreach (var patient in Model)
+    {
+        @Html.Label("FirstName",patient.FirstName);
+        @Html.Label("LastName", patient.LastName);
+    }
+}
+

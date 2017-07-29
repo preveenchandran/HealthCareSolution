@@ -1,0 +1,17 @@
+﻿@model IEnumerable<HealthCareUI.Models.Patient>
+
+@{
+    ViewBag.Title = "GetAllRespParty";
+}
+
+<h2>GetAllRespParty</h2>
+
+@using (Html.BeginForm())
+{
+    foreach (var patient in Model)
+    {
+        @Html.Label("FirstName", patient.FirstName);
+        @Html.Label("LastName", patient.LastName);
+    }
+}
+
