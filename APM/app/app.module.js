@@ -10,8 +10,8 @@ var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var http_1 = require("@angular/http");
 var forms_1 = require("@angular/forms");
-var router_1 = require("@angular/router");
 var app_component_1 = require("./app.component");
+var app_routes_1 = require("./app.routes");
 var product_list_component_1 = require("./products/product-list.component");
 var patient_info_component_1 = require("./patientInfo/patient-info.component");
 var header_component_1 = require("./shared/header/header.component");
@@ -24,11 +24,7 @@ var AppModule = (function () {
             imports: [platform_browser_1.BrowserModule,
                 http_1.HttpModule,
                 forms_1.FormsModule,
-                router_1.RouterModule.forRoot([
-                    { path: 'welcome', component: welcome_component_1.WelcomeComponent },
-                    { path: '', redirectTo: 'welcome', pathMatch: 'full' },
-                    { path: '**', redirectTo: 'welcome', pathMatch: 'full' }
-                ]),
+                app_routes_1.Routing
             ],
             declarations: [
                 app_component_1.AppComponent,

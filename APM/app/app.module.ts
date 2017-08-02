@@ -4,7 +4,8 @@ import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
-import { AppComponent }  from './app.component';
+import { AppComponent } from './app.component';
+import { Routing } from './app.routes';
 import { ProductListComponent } from './products/product-list.component';
 import { PatientInfoComponent } from './patientInfo/patient-info.component';
 import { HeaderComponent } from './shared/header/header.component';
@@ -14,11 +15,7 @@ import { WelcomeComponent } from './home/welcome.component';
     imports: [BrowserModule,
         HttpModule,
         FormsModule,
-        RouterModule.forRoot([
-            { path: 'welcome', component: WelcomeComponent },
-            { path: '', redirectTo: 'welcome', pathMatch: 'full' },
-            { path: '**', redirectTo: 'welcome', pathMatch: 'full' }
-        ]),
+        Routing
     ],
   declarations: [
     AppComponent,
