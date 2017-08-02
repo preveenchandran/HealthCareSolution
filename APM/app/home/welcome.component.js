@@ -13,7 +13,8 @@ var WelcomeComponent = (function () {
     }
     WelcomeComponent = __decorate([
         core_1.Component({
-            templateUrl: 'app/home/welcome.component.html'
+            templateUrl: 'app/home/welcome.component.html',
+            selector: "welcome"
         })
     ], WelcomeComponent);
     return WelcomeComponent;
