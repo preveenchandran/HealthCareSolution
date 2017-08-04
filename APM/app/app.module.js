@@ -16,6 +16,7 @@ var product_list_component_1 = require("./products/product-list.component");
 var patient_info_component_1 = require("./patientInfo/patient-info.component");
 var header_component_1 = require("./shared/header/header.component");
 var welcome_component_1 = require("./home/welcome.component");
+var onlinePatientEntry_component_1 = require("./onlinePatientEntry/onlinePatientEntry.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -31,7 +32,8 @@ var AppModule = (function () {
                 product_list_component_1.ProductListComponent,
                 patient_info_component_1.PatientInfoComponent,
                 header_component_1.HeaderComponent,
-                welcome_component_1.WelcomeComponent
+                welcome_component_1.WelcomeComponent,
+                onlinePatientEntry_component_1.OnlinePatientEntryComponent
             ],
             bootstrap: [app_component_1.AppComponent]
         })

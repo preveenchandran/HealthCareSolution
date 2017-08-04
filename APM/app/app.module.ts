@@ -10,6 +10,7 @@ import { ProductListComponent } from './products/product-list.component';
 import { PatientInfoComponent } from './patientInfo/patient-info.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { WelcomeComponent } from './home/welcome.component';
+import { OnlinePatientEntryComponent } from './onlinePatientEntry/onlinePatientEntry.component';
 
 @NgModule({
     imports: [BrowserModule,
@@ -22,7 +23,8 @@ import { WelcomeComponent } from './home/welcome.component';
       ProductListComponent,
       PatientInfoComponent,
       HeaderComponent,
-      WelcomeComponent
+      WelcomeComponent,
+      OnlinePatientEntryComponent
   ],
   bootstrap: [ AppComponent ]
 })
