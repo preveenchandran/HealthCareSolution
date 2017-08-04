@@ -7,13 +7,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var onlinePatient_1 = require("./onlinePatient");
 var OnlinePatientEntryComponent = (function () {
     function OnlinePatientEntryComponent() {
+        this.onlinePatient = new onlinePatient_1.OnlinePatient();
     }
     OnlinePatientEntryComponent.prototype.saveOnlinePatient = function (onlinePatFormValue) {
         console.log(onlinePatFormValue);
-        this.onlinePatient.LastName = onlinePatFormValue.lastName;
-        this.onlinePatient.FirstName = onlinePatFormValue.firstName;
     };
     OnlinePatientEntryComponent = __decorate([
         core_1.Component({

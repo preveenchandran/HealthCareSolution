@@ -1,4 +1,4 @@
-export interface IOnlinePatient {
-    LastName: string,
-    FirstName: string
+export class OnlinePatient {
+    public LastName: string;
+    public FirstName: string;
 }

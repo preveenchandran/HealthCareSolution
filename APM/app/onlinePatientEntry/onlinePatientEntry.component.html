@@ -1,11 +1,11 @@
 <form #onlinePatientEntryForm="ngForm">
     <div>
         <label>First Name:</label>
-        <input type="text" name = "firstName" />
+        <input [(ngModel)] ="onlinePatient.FirstName" type="text"  name = "firstName" />
         <label>Last Name:</label>
-        <input type="text" name = "lastName" />
+        <input [(ngModel)] ="onlinePatient.LastName" type="text" name = "lastName" />
     </div>
     <div>
-        <input type="button" (click) ="saveOnlinePatient(onlinePatientEntryForm.value)"/>
+        <input type="button" (click) ="saveOnlinePatient(onlinePatientEntryForm.value)" value="Submit" />
     </div>
 </form>
