@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthCareUI", "HealthCareU
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthCareUI.Tests", "HealthCareUI.Tests\HealthCareUI.Tests.csproj", "{AA0D81EF-5940-489E-8C41-FE1CABA2BF80}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HCRepository", "HCRepository\HCRepository.csproj", "{9588F077-C2DE-4E8B-8F9A-0352B042BAAC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{AA0D81EF-5940-489E-8C41-FE1CABA2BF80}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA0D81EF-5940-489E-8C41-FE1CABA2BF80}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA0D81EF-5940-489E-8C41-FE1CABA2BF80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9588F077-C2DE-4E8B-8F9A-0352B042BAAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9588F077-C2DE-4E8B-8F9A-0352B042BAAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9588F077-C2DE-4E8B-8F9A-0352B042BAAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9588F077-C2DE-4E8B-8F9A-0352B042BAAC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
