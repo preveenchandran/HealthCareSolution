@@ -5,20 +5,24 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using HCManager;
 
 namespace HCAPI.Controllers
 {
     public class PatientController : ApiController
     {
+        PatientManager mgrPatient = new PatientManager();
         public IHttpActionResult GetAllPatient()
         {
-            List<Patient> lstPatient = new List<Patient>();
-            Patient patient = new Patient {
-                 FirstName="Preveen",
-                 LastName = "Chandran"
-            };
-            lstPatient.Add(patient);
+            List<HCContract.Patient> lstPatient = new List<HCContract.Patient>();
+            lstPatient = mgrPatient.GetAllPatient();
             return Ok(lstPatient);
+        }
+
+        public IHttpActionResult PostPatient(HCContract.Patient patient)
+        {
+            mgrPatient.AddPatient(patient);
+            return Ok();
         }
     }
 }

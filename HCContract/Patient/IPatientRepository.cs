@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HCContract.Patient
+namespace HCContract
 {
     public interface IPatientRepository
     {
