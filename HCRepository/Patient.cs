@@ -14,8 +14,9 @@ namespace HCRepository
     
     public partial class Patient
     {
-        public int Id { get; set; }
+        public int id { get; set; }
         public string FirstName { get; set; }
+        public string MiddeName { get; set; }
         public string LastName { get; set; }
     }
 }

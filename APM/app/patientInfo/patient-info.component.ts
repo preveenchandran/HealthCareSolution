@@ -11,6 +11,9 @@ export class PatientInfoComponent implements OnInit{
     errorMessage: string;
     
     constructor(private patientInfoService: PatientInfoService) { }
+    ngOnInit(): void {
+        this.getPatientInfo();
+    }  
     getPatientInfo(): void {
         this.patientInfo = [{
             LastName: "Asdasd",
@@ -20,10 +23,8 @@ export class PatientInfoComponent implements OnInit{
         this.patientInfoService.getPatientInfo().subscribe(patInfo => this.patientInfo = patInfo,
             error => this.errorMessage = <any>error);
         console.log(this.patientInfo[0].LastName);
-                }
-    ngOnInit(): void {
-        this.getPatientInfo();
-    }  
+    }
+    
     clicked() {
         console.log(this.patientInfo[0].LastName = "Changed");
     }

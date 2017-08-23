@@ -15,6 +15,9 @@ var PatientInfoComponent = (function () {
     function PatientInfoComponent(patientInfoService) {
         this.patientInfoService = patientInfoService;
     }
+    PatientInfoComponent.prototype.ngOnInit = function () {
+        this.getPatientInfo();
+    };
     PatientInfoComponent.prototype.getPatientInfo = function () {
         var _this = this;
         this.patientInfo = [{
@@ -24,9 +27,6 @@ var PatientInfoComponent = (function () {
         this.pageTitle = "Hello";
         this.patientInfoService.getPatientInfo().subscribe(function (patInfo) { return _this.patientInfo = patInfo; }, function (error) { return _this.errorMessage = error; });
         console.log(this.patientInfo[0].LastName);
-    };
-    PatientInfoComponent.prototype.ngOnInit = function () {
-        this.getPatientInfo();
     };
     PatientInfoComponent.prototype.clicked = function () {
         console.log(this.patientInfo[0].LastName = "Changed");

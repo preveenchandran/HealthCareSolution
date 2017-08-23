@@ -27,8 +27,8 @@ namespace HCRepository
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Patient> Patients { get; set; }
         public virtual DbSet<ResParty> ResParties { get; set; }
+        public virtual DbSet<Patient> Patients { get; set; }
     
         public virtual ObjectResult<getAllPatient_Result> getAllPatient()
         {
