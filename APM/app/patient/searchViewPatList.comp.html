@@ -1,0 +1,26 @@
+<div>
+    <label>FirstName</label>
+    <input type="text" />
+    <table>
+        <thead>
+            <tr>
+                <th>FirstName</th>
+                <th>LastName</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let pat of patients">
+                <td>
+                    {{ pat.FirstName }}
+                </td>
+                <td>
+                    {{ pat.LastName }}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    
+</div>
+<div>
+    
+</div>

@@ -8,6 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var patient_info_service_1 = require("./patientInfo/patient-info.service");
+var searchViewPatList_service_1 = require("./patient/searchViewPatList.service");
 var AppComponent = (function () {
     function AppComponent() {
         this.pageTitle = "Health Care Solutions";
@@ -16,7 +17,9 @@ var AppComponent = (function () {
         core_1.Component({
             selector: 'pm-app',
             template: "\n        <header></header>\n        <div class='container'>\n            <router-outlet></router-outlet>\n        </div>\n    ",
-            providers: [patient_info_service_1.PatientInfoService]
+            providers: [patient_info_service_1.PatientInfoService,
+                searchViewPatList_service_1.SearchViewPatListService
+            ]
         })
     ], AppComponent);
     return AppComponent;

@@ -1,4 +1,4 @@
 export interface IPatientInfo {
-    LastName: string;
-    FirstName: string;
+    LastName: string,
+    FirstName: string
 }

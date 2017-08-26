@@ -11,6 +11,7 @@ import { PatientInfoComponent } from './patientInfo/patient-info.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { WelcomeComponent } from './home/welcome.component';
 import { OnlinePatientEntryComponent } from './onlinePatientEntry/onlinePatientEntry.component';
+import { SearchViewPatListComponent } from './patient/searchViewPatList.comp';
 
 @NgModule({
     imports: [BrowserModule,
@@ -24,7 +25,8 @@ import { OnlinePatientEntryComponent } from './onlinePatientEntry/onlinePatientE
       PatientInfoComponent,
       HeaderComponent,
       WelcomeComponent,
-      OnlinePatientEntryComponent
+      OnlinePatientEntryComponent,
+      SearchViewPatListComponent
   ],
   bootstrap: [ AppComponent ]
 })

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { PatientInfoService } from './patientInfo/patient-info.service';
+import { SearchViewPatListService } from './patient/searchViewPatList.service';
 
 @Component({
     selector: 'pm-app',
@@ -9,7 +10,9 @@ import { PatientInfoService } from './patientInfo/patient-info.service';
             <router-outlet></router-outlet>
         </div>
     `,
-    providers: [PatientInfoService]
+    providers: [PatientInfoService,
+        SearchViewPatListService
+    ]
 })
 export class AppComponent {
     pageTitle: string = `Health Care Solutions`;
