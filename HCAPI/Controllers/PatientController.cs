@@ -24,5 +24,7 @@ namespace HCAPI.Controllers
             mgrPatient.AddPatient(patient);
             return Ok();
         }
+
+        
     }
 }

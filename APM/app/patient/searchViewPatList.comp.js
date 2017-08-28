@@ -24,8 +24,24 @@ var SearchViewPatListComponent = (function () {
                 LastName: "Asdasd",
                 FirstName: "asd"
             }];
-        this.searchViewPatListService.getAllPatient().map(function (response) { return response.json(); }).subscribe(function (x) { return _this.patients = x; });
+        this.searchViewPatListService.getAllPatient().subscribe(function (patList) {
+            _this.patients = patList;
+            _this.fullListPatients = _this.patients;
+        });
         //console.log(this.errorMsg);
+    };
+    SearchViewPatListComponent.prototype.searchPatient = function (value, source) {
+        this.filteredPatients = this.patients;
+        switch (source.target.id.toLowerCase()) {
+            case "firstname":
+                this.filteredPatients = this.filteredPatients.filter(function (x) { return x.FirstName.toLowerCase().includes(value.toLowerCase()); });
+                break;
+            case "lastname":
+                this.filteredPatients = this.filteredPatients.filter(function (x) { return x.LastName.toLowerCase().includes(value.toLowerCase()); });
+                break;
+            default:
+        }
+        this.patients = this.filteredPatients;
     };
     SearchViewPatListComponent = __decorate([
         core_1.Component({

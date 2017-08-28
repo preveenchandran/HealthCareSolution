@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { Routing } from './app.routes';
@@ -12,12 +13,14 @@ import { HeaderComponent } from './shared/header/header.component';
 import { WelcomeComponent } from './home/welcome.component';
 import { OnlinePatientEntryComponent } from './onlinePatientEntry/onlinePatientEntry.component';
 import { SearchViewPatListComponent } from './patient/searchViewPatList.comp';
+import { AddEditPatientComponent } from './patient/addEditPatient.component';
 
 @NgModule({
     imports: [BrowserModule,
         HttpModule,
         FormsModule,
-        Routing
+        Routing,
+        ReactiveFormsModule
     ],
   declarations: [
     AppComponent,
@@ -26,7 +29,8 @@ import { SearchViewPatListComponent } from './patient/searchViewPatList.comp';
       HeaderComponent,
       WelcomeComponent,
       OnlinePatientEntryComponent,
-      SearchViewPatListComponent
+      SearchViewPatListComponent,
+      AddEditPatientComponent
   ],
   bootstrap: [ AppComponent ]
 })

@@ -20,7 +20,15 @@ var SearchViewPatListService = (function () {
         this.http = http;
     }
     SearchViewPatListService.prototype.getAllPatient = function () {
-        return this.http.get("http://localhost:9000/api/patient");
+        return this.http.get("http://localhost/HCAPI/api/patient")
+            .map(function (response) { return response.json(); });
+    };
+    SearchViewPatListService.prototype.addNewPatient = function (newPatient) {
+        var headers = new http_1.Headers({
+            'Content-Type': 'application/json; charset=utf-8'
+        });
+        var options = new http_1.RequestOptions({ headers: headers });
+        return this.http.post("http://localhost/HCAPI/api/patient", JSON.stringify(newPatient), options);
     };
     SearchViewPatListService.prototype.handleError = function (error) {
         console.error(error);

@@ -1,8 +1,11 @@
+<div [formGroup]="addPatientForm" (ngSubmit)="postPatient(addPatientForm.value)">
+    <input formControlName="firstName"/>
+    <input formControlName="lastName"/>
+    <input type="submit" value="Submit" (click)="addNewPatient(addPatientForm.value)"/>
+
+    
+</div>
 <div>
-    <label>FirstName</label>
-    <input type="text" #firstName id="firstName" (keyup) ="searchPatient(firstName.value, $event)"/>
-    <label>LastName</label>
-    <input type="text" #lastName id="lastName" (keyup)="searchPatient(lastName.value, $event)" />
     <table>
         <thead>
             <tr>
@@ -21,8 +24,4 @@
             </tr>
         </tbody>
     </table>
-    
-</div>
-<div>
-    
 </div>

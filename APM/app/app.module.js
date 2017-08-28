@@ -10,6 +10,7 @@ var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var http_1 = require("@angular/http");
 var forms_1 = require("@angular/forms");
+var forms_2 = require("@angular/forms");
 var app_component_1 = require("./app.component");
 var app_routes_1 = require("./app.routes");
 var product_list_component_1 = require("./products/product-list.component");
@@ -18,6 +19,7 @@ var header_component_1 = require("./shared/header/header.component");
 var welcome_component_1 = require("./home/welcome.component");
 var onlinePatientEntry_component_1 = require("./onlinePatientEntry/onlinePatientEntry.component");
 var searchViewPatList_comp_1 = require("./patient/searchViewPatList.comp");
+var addEditPatient_component_1 = require("./patient/addEditPatient.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -26,7 +28,8 @@ var AppModule = (function () {
             imports: [platform_browser_1.BrowserModule,
                 http_1.HttpModule,
                 forms_1.FormsModule,
-                app_routes_1.Routing
+                app_routes_1.Routing,
+                forms_2.ReactiveFormsModule
             ],
             declarations: [
                 app_component_1.AppComponent,
@@ -35,7 +38,8 @@ var AppModule = (function () {
                 header_component_1.HeaderComponent,
                 welcome_component_1.WelcomeComponent,
                 onlinePatientEntry_component_1.OnlinePatientEntryComponent,
-                searchViewPatList_comp_1.SearchViewPatListComponent
+                searchViewPatList_comp_1.SearchViewPatListComponent,
+                addEditPatient_component_1.AddEditPatientComponent
             ],
             bootstrap: [app_component_1.AppComponent]
         })

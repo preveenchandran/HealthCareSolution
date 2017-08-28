@@ -1,6 +1,6 @@
 <div>
     {{pageTitle}}
-    {{this.patientInfo[0].LastName}}
+    {{this.patientInfo[0]?.LastName}}
     <input type="button" [value]='this.patientInfo[0].LastName' />
     <button (click)="clicked()">Click</button>
 </div>

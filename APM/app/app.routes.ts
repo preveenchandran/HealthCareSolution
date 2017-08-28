@@ -3,6 +3,7 @@ import { WelcomeComponent } from './home/welcome.component';
 import { PatientInfoComponent } from './patientInfo/patient-info.component';
 import { OnlinePatientEntryComponent } from './onlinePatientEntry/onlinePatientEntry.component';
 import { SearchViewPatListComponent } from './patient/searchViewPatList.comp';
+import { AddEditPatientComponent } from './patient/addEditPatient.component';
 
 
 const routes: Routes = [
@@ -10,6 +11,7 @@ const routes: Routes = [
     { path: 'PatientInfo', component: PatientInfoComponent },
     { path: 'OnlinePatientEntry', component: OnlinePatientEntryComponent },
     { path: 'SearchViewPatList', component: SearchViewPatListComponent },
+    { path: 'AddEditPatient', component: AddEditPatientComponent },
     { path: '', redirectTo: 'welcome', pathMatch: 'full' },
     { path: '**', redirectTo: 'welcome', pathMatch: 'full' }
 ];

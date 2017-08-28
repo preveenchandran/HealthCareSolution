@@ -7,6 +7,8 @@ import { SearchViewPatListService } from './searchViewPatList.service'
 })
 export class SearchViewPatListComponent implements OnInit {
     patients: IPatient[];
+    filteredPatients: IPatient[];
+    fullListPatients: IPatient[];
     errorMsg: any;
     constructor(private searchViewPatListService: SearchViewPatListService) {
 
@@ -20,7 +22,26 @@ export class SearchViewPatListComponent implements OnInit {
             LastName: "Asdasd",
             FirstName: "asd"
         }];
-        this.searchViewPatListService.getAllPatient().map((response) => <IPatient[]>response.json()).subscribe(x => this.patients = x);
+        this.searchViewPatListService.getAllPatient().subscribe(patList => {
+            this.patients = patList;
+            this.fullListPatients = this.patients;
+        });
+        
         //console.log(this.errorMsg);
+    }
+
+    searchPatient(value: string, source: any): void {
+        this.filteredPatients = this.patients;
+        switch (source.target.id.toLowerCase()) {
+            case "firstname":
+                this.filteredPatients = this.filteredPatients.filter(x => x.FirstName.toLowerCase().includes(value.toLowerCase()));
+                break;
+            case "lastname":
+                this.filteredPatients = this.filteredPatients.filter(x => x.LastName.toLowerCase().includes(value.toLowerCase()));
+                break;
+            default:
+        }
+        this.patients = this.filteredPatients;
+        
     }
 }
