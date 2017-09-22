@@ -12,6 +12,7 @@ const routes: Routes = [
     { path: 'OnlinePatientEntry', component: OnlinePatientEntryComponent },
     { path: 'SearchViewPatList', component: SearchViewPatListComponent },
     { path: 'AddEditPatient', component: AddEditPatientComponent },
+    { path: 'AddEditPatient/:id', component: AddEditPatientComponent },
     { path: '', redirectTo: 'welcome', pathMatch: 'full' },
     { path: '**', redirectTo: 'welcome', pathMatch: 'full' }
 ];

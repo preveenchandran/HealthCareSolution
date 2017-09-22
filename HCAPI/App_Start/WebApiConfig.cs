@@ -15,8 +15,9 @@ namespace HCAPI
 
             // Web API routes
             config.MapHttpAttributeRoutes();
-            var cors = new EnableCorsAttribute("*", "*", "*");
-            config.EnableCors(cors);
+          //  config.EnableCors(new EnableCorsAttribute(Properties.Settings.Default.Cors, "", ""));
+           // var cors = new EnableCorsAttribute("*", "*", "*");
+          //  config.EnableCors(cors);
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",

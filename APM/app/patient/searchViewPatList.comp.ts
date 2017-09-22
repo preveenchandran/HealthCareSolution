@@ -1,6 +1,7 @@
 import { IPatient } from './patient.model';
 import { Component, OnInit } from '@angular/core';
-import { SearchViewPatListService } from './searchViewPatList.service'
+import { SearchViewPatListService } from './searchViewPatList.service';
+import { Router } from '@angular/router';
 @Component({
     templateUrl: "app/patient/searchViewPatList.comp.html",
     selector:"search-view"
@@ -10,7 +11,8 @@ export class SearchViewPatListComponent implements OnInit {
     filteredPatients: IPatient[];
     fullListPatients: IPatient[];
     errorMsg: any;
-    constructor(private searchViewPatListService: SearchViewPatListService) {
+    constructor(private searchViewPatListService: SearchViewPatListService,
+        private router: Router) {
 
     }
     ngOnInit(): void {
@@ -18,10 +20,6 @@ export class SearchViewPatListComponent implements OnInit {
     }
     
     getAllPatient(): void {
-        this.patients = [{
-            LastName: "Asdasd",
-            FirstName: "asd"
-        }];
         this.searchViewPatListService.getAllPatient().subscribe(patList => {
             this.patients = patList;
             this.fullListPatients = this.patients;
@@ -30,6 +28,7 @@ export class SearchViewPatListComponent implements OnInit {
         //console.log(this.errorMsg);
     }
 
+    //Todo: On Deleting the original data doesnt come back
     searchPatient(value: string, source: any): void {
         this.filteredPatients = this.patients;
         switch (source.target.id.toLowerCase()) {
@@ -43,5 +42,16 @@ export class SearchViewPatListComponent implements OnInit {
         }
         this.patients = this.filteredPatients;
         
+    }
+
+    deletePatient(patId: number) {
+        this.searchViewPatListService.deletePatient(patId).subscribe(x => {
+            this.getAllPatient();
+        });
+        return false;
+    }
+
+    navigateToPatientDetail(id: number): void {
+        this.router.navigate(['/AddEditPatient', id]);
     }
 }

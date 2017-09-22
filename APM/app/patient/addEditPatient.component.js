@@ -12,38 +12,54 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var forms_1 = require("@angular/forms");
 var core_1 = require("@angular/core");
 var searchViewPatList_service_1 = require("./searchViewPatList.service");
+var router_1 = require("@angular/router");
 var AddEditPatientComponent = (function () {
-    function AddEditPatientComponent(formBuilder, searchViewPatListService) {
+    function AddEditPatientComponent(formBuilder, searchViewPatListService, activatedRoute, router) {
         this.formBuilder = formBuilder;
         this.searchViewPatListService = searchViewPatListService;
+        this.activatedRoute = activatedRoute;
+        this.router = router;
     }
     AddEditPatientComponent.prototype.ngOnInit = function () {
+        var _this = this;
         this.addPatientForm = this.formBuilder.group({
             firstName: '',
             lastName: ''
         });
-        this.getAllPatient();
+        this.activatedRoute.params.subscribe(function (params) {
+            _this.selectedPatientId = params['id'];
+            if (_this.selectedPatientId) {
+                _this.getPatient(_this.selectedPatientId);
+                _this.isUpdateStyle = true;
+            }
+        });
     };
-    AddEditPatientComponent.prototype.getAllPatient = function () {
+    AddEditPatientComponent.prototype.getPatient = function (selectedPatientId) {
         var _this = this;
-        this.patients = [{
-                LastName: "Asdasd",
-                FirstName: "asd"
-            }];
-        this.searchViewPatListService.getAllPatient().subscribe(function (patList) { return _this.patients = patList; });
+        this.searchViewPatListService.getPatient(selectedPatientId).subscribe(function (selectedPatient) { return _this.selectedPatient = selectedPatient; });
     };
     AddEditPatientComponent.prototype.addNewPatient = function (newPat) {
         var _this = this;
         this.searchViewPatListService.addNewPatient(newPat).subscribe(function (x) {
-            _this.getAllPatient();
+            _this.router.navigate(['/SearchViewPatList']);
+        });
+    };
+    AddEditPatientComponent.prototype.updatePatient = function (updatePat) {
+        var _this = this;
+        this.searchViewPatListService.updatePatient(this.selectedPatientId, updatePat).subscribe(function (x) {
+            _this.router.navigate(['/SearchViewPatList']);
         });
     };
     AddEditPatientComponent = __decorate([
         core_1.Component({
             templateUrl: "app/patient/addEditPatient.html",
-            selector: "patient-addedit"
+            selector: "patient-addedit",
+            styles: ['.hideClass { display: none; }']
         }),
-        __metadata("design:paramtypes", [forms_1.FormBuilder, searchViewPatList_service_1.SearchViewPatListService])
+        __metadata("design:paramtypes", [forms_1.FormBuilder,
+            searchViewPatList_service_1.SearchViewPatListService,
+            router_1.ActivatedRoute,
+            router_1.Router])
     ], AddEditPatientComponent);
     return AddEditPatientComponent;
 }());

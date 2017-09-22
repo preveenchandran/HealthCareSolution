@@ -3,24 +3,35 @@
     <input type="text" #firstName id="firstName" (keyup) ="searchPatient(firstName.value, $event)"/>
     <label>LastName</label>
     <input type="text" #lastName id="lastName" (keyup)="searchPatient(lastName.value, $event)" />
-    <table>
-        <thead>
-            <tr>
-                <th>FirstName</th>
-                <th>LastName</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let pat of patients">
-                <td>
-                    {{ pat.FirstName }}
-                </td>
-                <td>
-                    {{ pat.LastName }}
-                </td>
-            </tr>
-        </tbody>
-    </table>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>FirstName</th>
+                    <th>LastName</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let pat of patients">
+                    <td>
+                        {{ pat.FirstName }}
+                    </td>
+                    <td>
+                        {{ pat.LastName }}
+                    </td>
+                    <td>
+                        <a [routerLink] ="['/AddEditPatient',pat.PatientId]">Edit</a>
+                    </td>
+                    <td>
+                        <input type="button" (click)="navigateToPatientDetail(pat.PatientId)" value="Edit"/>
+                    </td>
+                    <td>
+                        <a href="#" (click)="deletePatient(pat.PatientId)">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
     
 </div>
 <div>

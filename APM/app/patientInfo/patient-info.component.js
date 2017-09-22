@@ -20,13 +20,9 @@ var PatientInfoComponent = (function () {
     };
     PatientInfoComponent.prototype.getPatientInfo = function () {
         var _this = this;
-        this.patientInfo = [{
-                LastName: "Asdasd",
-                FirstName: "asd"
-            }];
         this.pageTitle = "Hello";
         this.patientInfoService.getPatientInfo().subscribe(function (patInfo) { return _this.patientInfo = patInfo; }, function (error) { return _this.errorMessage = error; });
-        console.log(this.patientInfo[0].LastName);
+        // console.log(this.patientInfo[0].LastName);
     };
     PatientInfoComponent.prototype.clicked = function () {
         console.log(this.patientInfo[0].LastName = "Changed");

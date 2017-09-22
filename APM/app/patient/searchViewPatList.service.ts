@@ -17,6 +17,11 @@ export class SearchViewPatListService {
             
     }
 
+    getPatient(patientId: number): Observable<IPatient> {
+        return this.http.get("http://localhost/HCAPI/api/patient/" + patientId)
+            .map((response: Response) => <IPatient>response.json());
+    }
+
     addNewPatient(newPatient : IPatient): Observable<any>{
         let headers = new Headers({
             'Content-Type':
@@ -26,6 +31,24 @@ export class SearchViewPatListService {
         return this.http.post("http://localhost/HCAPI/api/patient", JSON.stringify(newPatient), options);
     }
 
+    updatePatient(patientId: number, updatePatient: IPatient): Observable<any>{
+        let headers = new Headers({
+            'Content-Type':
+            'application/json; charset=utf-8'
+        });
+        let options = new RequestOptions({ headers: headers });
+        let body = JSON.stringify(updatePatient);
+        return this.http.put("http://localhost/HCAPI/api/patient/" + patientId,body,options);
+    }
+
+    deletePatient(patientId: number): Observable<any> {
+        let headers = new Headers({
+            'Content-Type':
+            'application/json; charset=utf-8'
+        });
+        let options = new RequestOptions({ headers: headers });
+        return this.http.delete("http://localhost/HCAPI/api/patient/" + patientId, options);
+    }
 
     private handleError(error: Response) {
         console.error(error);

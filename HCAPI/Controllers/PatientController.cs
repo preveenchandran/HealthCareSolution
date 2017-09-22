@@ -19,12 +19,29 @@ namespace HCAPI.Controllers
             return Ok(lstPatient);
         }
 
+        public IHttpActionResult GetPatient(int id)
+        {
+            HCContract.Patient patient = new HCContract.Patient();
+            patient = mgrPatient.GetPatient(id);
+            return Ok(patient);
+        }
+
         public IHttpActionResult PostPatient(HCContract.Patient patient)
         {
             mgrPatient.AddPatient(patient);
             return Ok();
         }
 
-        
+        public IHttpActionResult PutPatient(int id, HCContract.Patient patient)
+        {
+            mgrPatient.UpdatePatient(id, patient);
+            return Ok();
+        }
+
+        public IHttpActionResult DeletePatient(int id)
+        {
+            mgrPatient.DeletePatient(id);
+            return Ok();
+        }
     }
 }

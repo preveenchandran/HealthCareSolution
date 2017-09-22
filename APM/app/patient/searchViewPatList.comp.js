@@ -11,25 +11,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var searchViewPatList_service_1 = require("./searchViewPatList.service");
+var router_1 = require("@angular/router");
 var SearchViewPatListComponent = (function () {
-    function SearchViewPatListComponent(searchViewPatListService) {
+    function SearchViewPatListComponent(searchViewPatListService, router) {
         this.searchViewPatListService = searchViewPatListService;
+        this.router = router;
     }
     SearchViewPatListComponent.prototype.ngOnInit = function () {
         this.getAllPatient();
     };
     SearchViewPatListComponent.prototype.getAllPatient = function () {
         var _this = this;
-        this.patients = [{
-                LastName: "Asdasd",
-                FirstName: "asd"
-            }];
         this.searchViewPatListService.getAllPatient().subscribe(function (patList) {
             _this.patients = patList;
             _this.fullListPatients = _this.patients;
         });
         //console.log(this.errorMsg);
     };
+    //Todo: On Deleting the original data doesnt come back
     SearchViewPatListComponent.prototype.searchPatient = function (value, source) {
         this.filteredPatients = this.patients;
         switch (source.target.id.toLowerCase()) {
@@ -43,12 +42,23 @@ var SearchViewPatListComponent = (function () {
         }
         this.patients = this.filteredPatients;
     };
+    SearchViewPatListComponent.prototype.deletePatient = function (patId) {
+        var _this = this;
+        this.searchViewPatListService.deletePatient(patId).subscribe(function (x) {
+            _this.getAllPatient();
+        });
+        return false;
+    };
+    SearchViewPatListComponent.prototype.navigateToPatientDetail = function (id) {
+        this.router.navigate(['/AddEditPatient', id]);
+    };
     SearchViewPatListComponent = __decorate([
         core_1.Component({
             templateUrl: "app/patient/searchViewPatList.comp.html",
             selector: "search-view"
         }),
-        __metadata("design:paramtypes", [searchViewPatList_service_1.SearchViewPatListService])
+        __metadata("design:paramtypes", [searchViewPatList_service_1.SearchViewPatListService,
+            router_1.Router])
     ], SearchViewPatListComponent);
     return SearchViewPatListComponent;
 }());

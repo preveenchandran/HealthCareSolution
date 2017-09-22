@@ -11,7 +11,7 @@ export class PatientInfoService {
     constructor(private http: Http) { }
 
     getPatientInfo(): Observable<IPatientInfo[]> { 
-        return this.http.get("http://localhost:9000/api/patient")
+        return this.http.get("http://localhost/HCAPI/api/patient")
             .map((response: Response) => <IPatientInfo[]>response.json())
             .do(data => console.log('All: ' + JSON.stringify(data)))
             .catch(this.handleError);

@@ -20,7 +20,7 @@ var PatientInfoService = (function () {
         this.http = http;
     }
     PatientInfoService.prototype.getPatientInfo = function () {
-        return this.http.get("http://localhost:9000/api/patient")
+        return this.http.get("http://localhost/HCAPI/api/patient")
             .map(function (response) { return response.json(); })
             .do(function (data) { return console.log('All: ' + JSON.stringify(data)); })
             .catch(this.handleError);

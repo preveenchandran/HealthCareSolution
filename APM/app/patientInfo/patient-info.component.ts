@@ -15,14 +15,10 @@ export class PatientInfoComponent implements OnInit{
         this.getPatientInfo();
     }  
     getPatientInfo(): void {
-        this.patientInfo = [{
-            LastName: "Asdasd",
-            FirstName: "asd"
-        }];
         this.pageTitle = "Hello";
-        this.patientInfoService.getPatientInfo().subscribe(patInfo => this.patientInfo = patInfo,
+       this.patientInfoService.getPatientInfo().subscribe(patInfo => this.patientInfo = patInfo,
             error => this.errorMessage = <any>error);
-        console.log(this.patientInfo[0].LastName);
+       // console.log(this.patientInfo[0].LastName);
     }
     
     clicked() {

@@ -12,6 +12,7 @@ var routes = [
     { path: 'OnlinePatientEntry', component: onlinePatientEntry_component_1.OnlinePatientEntryComponent },
     { path: 'SearchViewPatList', component: searchViewPatList_comp_1.SearchViewPatListComponent },
     { path: 'AddEditPatient', component: addEditPatient_component_1.AddEditPatientComponent },
+    { path: 'AddEditPatient/:id', component: addEditPatient_component_1.AddEditPatientComponent },
     { path: '', redirectTo: 'welcome', pathMatch: 'full' },
     { path: '**', redirectTo: 'welcome', pathMatch: 'full' }
 ];
