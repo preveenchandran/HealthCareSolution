@@ -19,13 +19,17 @@ var AddEditPatientComponent = (function () {
         this.searchViewPatListService = searchViewPatListService;
         this.activatedRoute = activatedRoute;
         this.router = router;
+        this.isUpdateStyle = false;
+        this.accordionHide = false;
+        this.firstName = new forms_1.FormControl('', [forms_1.Validators.required, , forms_1.Validators.minLength(2)]);
+        this.lastName = new forms_1.FormControl('');
+        this.addPatientForm = this.formBuilder.group({
+            firstName: this.firstName,
+            lastName: this.lastName
+        });
     }
     AddEditPatientComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.addPatientForm = this.formBuilder.group({
-            firstName: '',
-            lastName: ''
-        });
         this.activatedRoute.params.subscribe(function (params) {
             _this.selectedPatientId = params['id'];
             if (_this.selectedPatientId) {
@@ -36,7 +40,16 @@ var AddEditPatientComponent = (function () {
     };
     AddEditPatientComponent.prototype.getPatient = function (selectedPatientId) {
         var _this = this;
-        this.searchViewPatListService.getPatient(selectedPatientId).subscribe(function (selectedPatient) { return _this.selectedPatient = selectedPatient; });
+        this.searchViewPatListService.getPatient(selectedPatientId).subscribe(function (selectedPatient) {
+            _this.selectedPatient = selectedPatient;
+            _this.setFormValue();
+        });
+    };
+    AddEditPatientComponent.prototype.setFormValue = function () {
+        this.addPatientForm.setValue({
+            firstName: this.selectedPatient.FirstName,
+            lastName: this.selectedPatient.LastName
+        });
     };
     AddEditPatientComponent.prototype.addNewPatient = function (newPat) {
         var _this = this;
@@ -50,11 +63,26 @@ var AddEditPatientComponent = (function () {
             _this.router.navigate(['/SearchViewPatList']);
         });
     };
+    AddEditPatientComponent.prototype.accordionCollapse = function () {
+        this.accordionHide = !this.accordionHide;
+    };
     AddEditPatientComponent = __decorate([
         core_1.Component({
             templateUrl: "app/patient/addEditPatient.html",
             selector: "patient-addedit",
-            styles: ['.hideClass { display: none; }']
+            styles: ['.hideClass { display: none; } .accordionHide{display: none;transition: visibility 0.5s, opacity 0.5s linear;}']
+            //animations: [
+            //    trigger('popOverState', [
+            //        state('show', style({
+            //            opacity: 1
+            //        })),
+            //        state('hide', style({
+            //            opacity: 0
+            //        })),
+            //        transition('show => hide', animate('600ms ease-out')),
+            //        transition('hide => show', animate('1000ms ease-in'))
+            //    ])
+            //]
         }),
         __metadata("design:paramtypes", [forms_1.FormBuilder,
             searchViewPatList_service_1.SearchViewPatListService,
