@@ -21,7 +21,8 @@ import * as $ from 'jQuery';
         HttpModule,
         FormsModule,
         Routing,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        BrowserAnimationsModule
     ],
   declarations: [
     AppComponent,

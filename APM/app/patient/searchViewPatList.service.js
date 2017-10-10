@@ -15,7 +15,7 @@ var Observable_1 = require("rxjs/Observable");
 require("rxjs/add/operator/catch");
 require("rxjs/add/operator/do");
 require("rxjs/add/operator/map");
-var SearchViewPatListService = (function () {
+var SearchViewPatListService = /** @class */ (function () {
     function SearchViewPatListService(http) {
         this.http = http;
     }
@@ -55,9 +55,10 @@ var SearchViewPatListService = (function () {
     };
     SearchViewPatListService = __decorate([
         core_1.Injectable(),
-        __metadata("design:paramtypes", [http_1.Http])
+        __metadata("design:paramtypes", [typeof (_a = typeof http_1.Http !== "undefined" && http_1.Http) === "function" && _a || Object])
     ], SearchViewPatListService);
     return SearchViewPatListService;
+    var _a;
 }());
 exports.SearchViewPatListService = SearchViewPatListService;
 //# sourceMappingURL=searchViewPatList.service.js.map

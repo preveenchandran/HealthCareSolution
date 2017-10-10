@@ -12,7 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var searchViewPatList_service_1 = require("./searchViewPatList.service");
 var router_1 = require("@angular/router");
-var SearchViewPatListComponent = (function () {
+var SearchViewPatListComponent = /** @class */ (function () {
     function SearchViewPatListComponent(searchViewPatListService, router) {
         this.searchViewPatListService = searchViewPatListService;
         this.router = router;
@@ -57,10 +57,10 @@ var SearchViewPatListComponent = (function () {
             templateUrl: "app/patient/searchViewPatList.comp.html",
             selector: "search-view"
         }),
-        __metadata("design:paramtypes", [searchViewPatList_service_1.SearchViewPatListService,
-            router_1.Router])
+        __metadata("design:paramtypes", [searchViewPatList_service_1.SearchViewPatListService, typeof (_a = typeof router_1.Router !== "undefined" && router_1.Router) === "function" && _a || Object])
     ], SearchViewPatListComponent);
     return SearchViewPatListComponent;
+    var _a;
 }());
 exports.SearchViewPatListComponent = SearchViewPatListComponent;
 //# sourceMappingURL=searchViewPatList.comp.js.map

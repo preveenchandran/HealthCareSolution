@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var OnlinePatient = (function () {
+var OnlinePatient = /** @class */ (function () {
     function OnlinePatient() {
     }
     return OnlinePatient;

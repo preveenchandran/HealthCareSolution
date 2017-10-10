@@ -12,7 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var patient_info_service_1 = require("./patientInfo/patient-info.service");
 var searchViewPatList_service_1 = require("./patient/searchViewPatList.service");
-var AppComponent = (function () {
+var AppComponent = /** @class */ (function () {
     function AppComponent() {
         this.pageTitle = "Health Care Solutions";
         $(document).ready(function () { console.log('jquery is working'); });

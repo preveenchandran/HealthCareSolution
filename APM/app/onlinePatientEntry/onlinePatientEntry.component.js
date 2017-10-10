@@ -8,7 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var onlinePatient_1 = require("./onlinePatient");
-var OnlinePatientEntryComponent = (function () {
+var OnlinePatientEntryComponent = /** @class */ (function () {
     function OnlinePatientEntryComponent() {
         this.onlinePatient = new onlinePatient_1.OnlinePatient();
     }
